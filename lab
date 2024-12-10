@@ -1,0 +1,35 @@
+#!/bin/bash
+filename=$2
+
+add_task(){
+    echo $task >> $filename
+    echo Задача добавлена: $1
+}
+view_tasks(){
+    if [ -f $filename ]
+    then
+        echo Список задач:
+        cat $filename
+    else
+        echo В файле нет задач.
+    fi
+}
+echo Введите один из вариантов:
+echo 1 - Добавить задачу в файл.
+echo 2 - Просмотр всех задач в файле.
+read var
+if [ $var = "1" ]; then
+	echo Введите задачу:
+	read task
+	add_task $task
+elif [ $var = "2" ]; then
+	view_tasks
+fi
+echo "Хотите продолжить работу с файлом? (y/n)"
+read ans
+if [ $ans = "y" ] || [ $ans = "н" ]
+then
+	./lab -f $2
+else
+	exit 1
+fi
