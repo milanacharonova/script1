@@ -32,7 +32,7 @@ elif [ $var = "2" ]; then
 fi
 echo "Хотите продолжить работу с файлом? (y/n)"
 read ans
-if [ $ans = "y" ] || [ $ans = "н" ]
+if [ $ans = "y" ] || [ $ans = "н" ] || [ $ans = "yes" ]
 then
 	./lab -f $2
 else
