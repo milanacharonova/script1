@@ -1,5 +1,10 @@
 #!/bin/bash
 filename=$2
+if [ -z $filename ]
+then
+        echo "Имя файла не указано"
+        exit 1
+fi
 
 add_task(){
     echo $task >> $filename
